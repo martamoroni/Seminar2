@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ProjectAssigmentsTable.css";
 import TableHeader from "./TableHeader";
-import { IoIosArrowDown } from "react-icons/io";
 
 function ProjectAssigmentsTable() {
   const [assignments, setAssignments] = useState([]);
