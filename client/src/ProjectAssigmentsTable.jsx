@@ -4,7 +4,7 @@ import TableHeader from "./TableHeader";
 
 function ProjectAssigmentsTable() {
   const [assignments, setAssignments] = useState([]);
-  const [sortingKey, setSortingKey] = useState("start_date"); // Initially sorts on date. Values are: "employee_id" / "employee_name" / "project_name" / "start_date"
+  const [sortingKey, setSortingKey] = useState(""); // Values are: "employee_id" / "employee_name" / "project_name" / "start_date"
 
   useEffect(() => {
     // Initial fetching
@@ -44,21 +44,24 @@ function ProjectAssigmentsTable() {
               setSortingKey={setSortingKey}
             />
             <TableHeader
-              sortingKey="employee_name"
+              sortingKey={sortingKey}
+              sortingKeyValue="employee_name"
               headerText="Emplyee Name"
               assignments={assignments}
               setAssignments={setAssignments}
               setSortingKey={setSortingKey}
             />
             <TableHeader
-              sortingKey="project_name"
+              sortingKey={sortingKey}
+              sortingKeyValue="project_name"
               headerText="Project Name"
               assignments={assignments}
               setAssignments={setAssignments}
               setSortingKey={setSortingKey}
             />
             <TableHeader
-              sortingKey="start_date"
+              sortingKey={sortingKey}
+              sortingKeyValue="start_date"
               headerText="Start Date"
               assignments={assignments}
               setAssignments={setAssignments}
