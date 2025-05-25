@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ProjectAssigmentsTable.css";
+import TableHeader from "./TableHeader";
 import { IoIosArrowDown } from "react-icons/io";
 
 function ProjectAssigmentsTable() {
@@ -29,56 +30,41 @@ function ProjectAssigmentsTable() {
     }
   };
 
-  // Function to sort in ascending order based on a key (column selected)
-  const sortColumn = (key) => {
-    const sortedAssignments = [...assignments].sort((a, b) => {
-      if (a[key] < b[key]) return -1;
-      if (a[key] > b[key]) return 1;
-      return 0;
-    });
-
-    setAssignments(sortedAssignments); // update state to show new table
-    setSortingKey(key); // update sorting state
-  };
-
   return (
     <div>
       <h1>The Latest Project Assignments</h1>
       <table>
         <thead>
           <tr>
-            <th onClick={() => sortColumn("employee_id")}>
-              Employee ID
-              <span className="icon-wrapper">
-                <IoIosArrowDown
-                  className={sortingKey === "employee_id" ? "" : "hidden"}
-                />
-              </span>
-            </th>
-            <th onClick={() => sortColumn("employee_name")}>
-              Employee Name
-              <span className="icon-wrapper">
-                <IoIosArrowDown
-                  className={sortingKey === "employee_name" ? "" : "hidden"}
-                />
-              </span>
-            </th>
-            <th onClick={() => sortColumn("project_name")}>
-              Project Name
-              <span className="icon-wrapper">
-                <IoIosArrowDown
-                  className={sortingKey === "project_name" ? "" : "hidden"}
-                />
-              </span>
-            </th>
-            <th onClick={() => sortColumn("start_date")}>
-              Start Date
-              <span className="icon-wrapper">
-                <IoIosArrowDown
-                  className={sortingKey === "start_date" ? "" : "hidden"}
-                />
-              </span>
-            </th>
+            <TableHeader
+              sortingKey={sortingKey}
+              sortingKeyValue="employee_id"
+              headerText="Employee ID"
+              assignments={assignments}
+              setAssignments={setAssignments}
+              setSortingKey={setSortingKey}
+            />
+            <TableHeader
+              sortingKey="employee_name"
+              headerText="Emplyee Name"
+              assignments={assignments}
+              setAssignments={setAssignments}
+              setSortingKey={setSortingKey}
+            />
+            <TableHeader
+              sortingKey="project_name"
+              headerText="Project Name"
+              assignments={assignments}
+              setAssignments={setAssignments}
+              setSortingKey={setSortingKey}
+            />
+            <TableHeader
+              sortingKey="start_date"
+              headerText="Start Date"
+              assignments={assignments}
+              setAssignments={setAssignments}
+              setSortingKey={setSortingKey}
+            />
           </tr>
         </thead>
         <tbody>

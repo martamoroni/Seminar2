@@ -11,16 +11,6 @@ connectDB();
 const app = express();
 app.use(express.json());
 
-// Middleware to serve static files
-// TODO: Run "npm run build" on client folder to create the static version of the app in the dist folder
-
-// app.use(express.static(path.join(__dirname, "../client/dist")));
-
-// This is useful if no routes match -> it sends back to index.html
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
-// });
-
 app.use(
   cors({
     origin: "http://localhost:5173", // Only allow this origin
