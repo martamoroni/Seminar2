@@ -113,7 +113,8 @@ router.get("/project_assignments", async (req, res) => {
       .populate({
         path: "project_code",
         select: "project_code project_name",
-      });
+      })
+      .sort({ start_date: -1 }); // To get them in order from newest
 
     // To make it easier for the frontend
     const cleanAssigments = assignments.map((assign) => ({
