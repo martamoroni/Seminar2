@@ -1,0 +1,35 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #6a0dad;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  cursor: pointer;
+}
+
+th:hover {
+  background-color: #4b0082;
+}
+
+.icon-wrapper {
+  display: inline-block;
+  width: 1em;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.icon-wrapper .hidden {
+  display: none;
+}
