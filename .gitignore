@@ -35,3 +35,6 @@ Thumbs.db
 
 # Local npm packages
 yarn.lock
+
+# File to seed the database
+server/seed.js
